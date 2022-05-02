@@ -13,7 +13,7 @@
         <li><i class="fab fa-linkedin px-2"></i></li>
       </ul>
     </div>
-    <div>
+    <div @click="showCartModal">
       <i class="fa-solid fa-cart-shopping px-2"></i>
     </div>
     <div class="mr-2 ml-2">
@@ -36,6 +36,11 @@ export default {
      return {
      }
    },
+   methods: {
+     showCartModal(){
+       this.$store.commit('showCartModal', true);
+     }
+   }
 }
 </script>
 

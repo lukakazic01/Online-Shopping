@@ -9,11 +9,12 @@
 import NavBar from '@/components/navbar/NavBar';
 import AllProducts from '@/components/ProductList/AllProducts.vue';
 
+
 export default {
   name: 'IndexPage',
   components: {
     NavBar,
-    AllProducts
+    AllProducts,
 },
   data() {
     return {

@@ -128,6 +128,17 @@ export const state = () => ({
     systemInfo: {
       openLoginModal: false,
       openSignupModal: false,
-      openCheckoutModal: false
+      openCartModal: false
     }
   })
+  export const mutations = {
+     showCartModal(state, show){
+       state.systemInfo.openCartModal = show;
+     },
+     closeCartModal(state){
+       state.systemInfo.openCartModal = false;
+     }
+  };
+  export const getters = {
+
+}
