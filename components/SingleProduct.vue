@@ -23,7 +23,8 @@
       </div>
       <div class="flex flex-row items-center">
       <div class="pl-3 pt-1 pr-1 pb-1 flex button-wrapper">
-        <button type="button" class="card-button bg-blue-500 hover:bg-blue-700 text-white rounded p-3" @click="addToCart(product)"><span class="text-center">Add to Cart</span></button> 
+        <button v-if="!product.isAddedToCart" type="button" class="bg-blue-500 hover:bg-blue-700 text-white rounded p-3 text-xs" @click="addToCart(product)"><span class="text-center">Add to Cart</span></button>
+        <button v-else type="button" class="bg-blue-500 hover:bg-blue-700 text-white rounded p-3 text-xs" @click="removeFromCart(product)"><span class="text-center">Remove from Cart</span></button>  
       </div>
       <div class="kolicina flex justify-end">
        <select>
@@ -56,6 +57,10 @@ export default {
     addToCart(product){
       const id = product.id;
       this.$store.commit('addToCart', id);
+    },
+    removeFromCart(product){
+      const id =  product.id
+      this.$store.commit('removeFromCart', id)
     }
   }
 }

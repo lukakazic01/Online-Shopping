@@ -143,6 +143,12 @@ export const state = () => ({
         if(id === el.id)
           el.isAddedToCart = true;
       })
+     },
+     removeFromCart(state, id){
+      state.products.forEach(el => {
+        if(id === el.id)
+          el.isAddedToCart = false;
+      })
      }
   };
   export const getters = {
