@@ -1,5 +1,7 @@
 # moja-prodavnica
 
+Work is still in progress...
+
 ## Build Setup
 
 ```bash
