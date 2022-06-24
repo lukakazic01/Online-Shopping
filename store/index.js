@@ -28,7 +28,7 @@ export const state = () => ({
       },
       {
         id: 3,
-        title: 'Converse Patike',
+        title: 'Crne Patike',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         price: 110,
         image: require('~/assets/converse-patike.jpg'),
