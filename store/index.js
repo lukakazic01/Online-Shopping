@@ -10,7 +10,7 @@ export const state = () => ({
         reviews: 5,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -23,7 +23,7 @@ export const state = () => ({
         reviews: 10,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -36,7 +36,7 @@ export const state = () => ({
         reviews: 3,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -49,7 +49,7 @@ export const state = () => ({
         reviews: 0,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -62,7 +62,7 @@ export const state = () => ({
         reviews: 2,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -75,7 +75,7 @@ export const state = () => ({
         reviews: 1,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -88,7 +88,7 @@ export const state = () => ({
         reviews: 7,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -101,7 +101,7 @@ export const state = () => ({
         reviews: 0,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       },
       {
@@ -114,7 +114,7 @@ export const state = () => ({
         reviews: 2,
         isAddedToCart: false,
         isAddedBtn: false,
-        isFavourite: false,
+        isFavorite: false,
         quantity: 1
       }
     ],
@@ -137,7 +137,18 @@ export const state = () => ({
      },
      closeCartModal(state){
        state.systemInfo.openCartModal = false;
+     },
+     addToCart(state, id){
+      state.products.forEach(el => {
+        if(id === el.id)
+          el.isAddedToCart = true;
+      })
      }
   };
   export const getters = {
+    addedToCartProducts(state){
+      return state.products.filter(el => {
+        return el.isAddedToCart === true;
+      })
+    }
 }

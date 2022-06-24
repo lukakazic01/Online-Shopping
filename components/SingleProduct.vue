@@ -15,11 +15,7 @@
     <p class="p-3">{{ product.description }}</p>
     <div class="ocene-i-cena flex flex-row justify-between">
       <div class="ocena p-3">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>    
+      <i v-for="star in product.ratings" :key="star.id" class="fa-solid fa-star"></i>    
       </div>
       <div class="cena p-3">
         Price: {{ product.price }}$  
@@ -27,7 +23,7 @@
       </div>
       <div class="flex flex-row items-center">
       <div class="pl-3 pt-1 pr-1 pb-1 flex button-wrapper">
-        <button type="button" class="card-button bg-blue-500 hover:bg-blue-700 text-white rounded p-3"><span class="text-center">Add to Cart</span></button> 
+        <button type="button" class="card-button bg-blue-500 hover:bg-blue-700 text-white rounded p-3" @click="addToCart(product)"><span class="text-center">Add to Cart</span></button> 
       </div>
       <div class="kolicina flex justify-end">
        <select>
@@ -56,6 +52,12 @@ export default {
 
       }
   },
+  methods: {
+    addToCart(product){
+      const id = product.id;
+      this.$store.commit('addToCart', id);
+    }
+  }
 }
 </script>
 

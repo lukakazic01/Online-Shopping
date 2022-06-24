@@ -7,9 +7,7 @@
 </template>
 
 <script>
-import SingleProduct from "@/components/Product/SingleProduct.vue";
 export default {
-    components: { SingleProduct },
     data() {
         return {
             products: this.$store.state.products,

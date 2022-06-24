@@ -25,13 +25,11 @@
 </template>
 
 <script>
-import SearchBar from "./Search/SearchBar";
+
 
 export default {
   name: 'NavBar',
-  components: {
-    SearchBar
-  },
+
    data() {
      return {
      }
