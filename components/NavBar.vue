@@ -14,7 +14,7 @@
       </ul>
     </div>
     <div @click="showCartModal">
-      <i class="fa-solid fa-cart-shopping px-2">{{ productsLength }}</i>
+      <i class="fa-solid fa-cart-shopping px-2">{{ productsLength  }}</i>
     </div>
     <div class="mr-2 ml-2">
       <button class="modal-button hover:bg-blue-500 hover:text-white py-1 px-4 border rounded">Sign Up</button>
