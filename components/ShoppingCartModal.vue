@@ -9,23 +9,9 @@
           <div v-if="products.length === 0"> 
             <p>Your checkout is empty</p>
           </div>
-          <div v-for="product in products" v-else :key="product.id" class="flex items-center p-2">
-            <div class="basis">        
-              <img :src="product.image" class="w-12 sm:w-20">  
-            </div> 
-            <div class="basis text-center">
-               <p class="text-xs sm:text-base">Price: {{product.price}}&euro;</p>
-            </div> 
-            <div class="basis text-center">
-               <p class="text-xs sm:text-base">Quantity: {{product.quantity}}</p>
-            </div>           
-            <div class="basis text-center">
-               <p class="text-xs sm:text-base">{{product.title}}</p>
-            </div> 
-            <div class="basis text-right">
-               <button class="bg-transparent hover:bg-red-500 text-red-500 font-normal text-xs sm:text-base sm:font-semibold hover:text-white sm:py-2 sm:px-4 py-1 px-3 border border-red-500 hover:border-transparent rounded" @click="removeItem(product)">Izbrisi</button>
-            </div>  
-          </div> 
+          <div v-for="product in products" v-else :key="product.id">
+            <ShoppingCartProducts :product="product"></ShoppingCartProducts> 
+          </div>
         </section>
         <div class="modal-button p-3">
             <button type="button" class="bg-green-400 text-white font-bold p-2 rounded">Buy {{ label }} for {{ sumAllPrices() }} &euro;</button>
@@ -57,10 +43,6 @@ export default {
     },
     closeCartModal(){
        this.$store.commit('closeCartModal')
-    },
-    removeItem(product){
-       const id = product.id;
-       this.$store.commit('removeFromCart', id)
     },
     sumAllPrices(){
       let sum = 0;
@@ -110,8 +92,5 @@ export default {
   background-color: white;
   border-top: 1px solid #dbdbdb;
   border-bottom: 1px solid #dbdbdb;
-}
-.basis{
-  flex-basis: 20%;
 }
 </style>
