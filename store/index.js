@@ -149,6 +149,12 @@ export const state = () => ({
         if(id === el.id)
           el.isAddedToCart = false;
       })
+     },
+     quantityChanged(state, data){
+       state.products.forEach(el => {
+         if(data.id === el.id)
+           el.quantity = data.quantity
+       })
      }
   };
   export const getters = {

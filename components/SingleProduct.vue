@@ -27,10 +27,8 @@
         <button v-else type="button" class="bg-blue-500 hover:bg-blue-700 text-white rounded p-3 text-xs" @click="removeFromCart(product)"><span class="text-center">Remove from Cart</span></button>  
       </div>
       <div class="kolicina flex justify-end">
-       <select>
-         <option>1</option>
-         <option>2</option>
-         <option>3</option>
+       <select v-model="selected" @change="onSelectChange(product.id)">
+         <option v-for="(number, index) in quantityArray" :key="index" :value="number">{{ number }}</option>
        </select>
       </div>  
     </div>
@@ -49,9 +47,15 @@ export default {
   },
 
   data() {
-      return {
-
-      }
+    return {
+      quantityArray: [],
+      selected: 1
+    }
+  },
+  created(){
+    for(let i = 1; i <= 20; i++){
+      this.quantityArray.push(i);
+    }
   },
   methods: {
     addToCart(product){
@@ -61,8 +65,15 @@ export default {
     removeFromCart(product){
       const id =  product.id
       this.$store.commit('removeFromCart', id)
+    },
+    onSelectChange(id){
+     const data = {
+        id,
+        quantity: this.selected
+     }
+     this.$store.commit('quantityChanged', data)
     }
-  }
+  },
 }
 </script>
 

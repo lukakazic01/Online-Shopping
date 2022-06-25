@@ -3,7 +3,7 @@
     <div class="modall">
         <div class="modall-header p-3">
             <p class="modal-p">Checkout</p>
-            <i class="fa-solid fa-circle-xmark" @click="closeCartModal()"></i>
+            <i class="fa-solid fa-circle-xmark cursor-pointer" @click="closeCartModal()"></i>
         </div>
         <section id="modal-products" class="p-3"> 
           <div v-if="products.length === 0"> 
@@ -12,6 +12,12 @@
           <div v-for="product in products" v-else :key="product.id" class="flex items-center p-2">
             <div class="basis">        
               <img :src="product.image" class="w-12 sm:w-20">  
+            </div> 
+            <div class="basis text-center">
+               <p class="text-xs sm:text-base">Price: {{product.price}}&euro;</p>
+            </div> 
+            <div class="basis text-center">
+               <p class="text-xs sm:text-base">Quantity: {{product.quantity}}</p>
             </div>           
             <div class="basis text-center">
                <p class="text-xs sm:text-base">{{product.title}}</p>
@@ -22,7 +28,7 @@
           </div> 
         </section>
         <div class="modal-button p-3">
-            <button type="button" class="bg-green-400 text-white font-bold p-2 rounded">Buy product for 35$</button>
+            <button type="button" class="bg-green-400 text-white font-bold p-2 rounded">Buy {{ label }} for {{ sumAllPrices() }} &euro;</button>
         </div>
     </div>
   </div>
@@ -34,7 +40,7 @@ export default {
   layout: 'ShoppingCartModal',
   data() {
       return {
-        
+        label: ''
       }
   },
   computed: {
@@ -55,8 +61,19 @@ export default {
     removeItem(product){
        const id = product.id;
        this.$store.commit('removeFromCart', id)
+    },
+    sumAllPrices(){
+      let sum = 0;
+      this.products.forEach(el => {
+        sum += (el.price * el.quantity)
+        if(el.quantity > 1 || this.products.length > 1)
+        this.label = 'products'
+        else
+        this.label = 'product'
+      })
+      return sum
     }
-  }
+  },
 }
 </script>
 
@@ -95,6 +112,6 @@ export default {
   border-bottom: 1px solid #dbdbdb;
 }
 .basis{
-  flex-basis: 33.3333%;
+  flex-basis: 20%;
 }
 </style>
