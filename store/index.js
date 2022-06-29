@@ -154,7 +154,7 @@ export const state = () => ({
      quantityChanged(state, data){
        state.products.forEach(el => {
          if(data.id === el.id)
-           el.quantity = data.quantity
+           el.quantity = data.quantity;
        })
      },
      isBought(state, isBought){
@@ -162,8 +162,14 @@ export const state = () => ({
      },
      ifProductsWereBought(state){
       state.products.forEach(el => {
-        el.isAddedToCart = false
+        el.isAddedToCart = false;
       })
+     },
+     hasSearched(state, isSearched){
+      state.userInfo.hasSearched = isSearched;
+     },
+     searchedValue(state, title){
+      state.userInfo.productTitleSearched = title;
      }
   };
   export const getters = {

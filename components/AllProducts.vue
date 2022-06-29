@@ -10,9 +10,24 @@
 export default {
     data() {
         return {
-            products: this.$store.state.products,
-        };
+            
+        }
     },
+    computed: {
+        products(){
+          if(!this.$store.state.userInfo.hasSearched)
+            return this.$store.state.products
+          else
+            return this.getSearchedProducts()
+        }
+    },
+    methods: {
+        getSearchedProducts(){
+            const searched = this.$store.state.userInfo.productTitleSearched;
+            const products = this.$store.state.products;
+            return products.filter(el => el.title.trim().toLowerCase().includes(searched.trim().toLowerCase()))
+        }
+    }
 }
 </script>
 
