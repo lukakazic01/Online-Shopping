@@ -1,10 +1,10 @@
 <template>
-  <div class="search-bar control has-icons-left hidden sm:block">
+  <div class="hidden sm:block">
       <input 
        v-model="search"
        type="text"
        placeholder="Search..." 
-       class="input is-rounded"
+       class="border-2 border-gray-200 border rounded focus:shadow-outline"
        @keyup="searched()"
        >
       <span class="icon is-small is-left">

@@ -1,7 +1,7 @@
 <template>
   <div v-if="openModal()" class="modal-wrapper">
-    <div class="modall">
-        <div class="modall-header p-3">
+    <div class="modal">
+        <div class="modal-header p-3">
             <p class="modal-p">Checkout</p>
             <i class="fa-solid fa-circle-xmark cursor-pointer" @click="closeCartModal()"></i>
         </div>
@@ -32,7 +32,6 @@
 <script>
 export default {
   name:'ShoppingCartModal',
-  layout: 'ShoppingCartModal',
   data() {
       return {
         label: '',
@@ -89,13 +88,13 @@ export default {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
 }
-.modall{
+.modal{
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
     width: 60vw
 }
-.modall-header{
+.modal-header{
     display: flex;
     flex-direction: row;
     align-items: center;
