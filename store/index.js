@@ -17,7 +17,7 @@ export const state = () => ({
         id: 2,
         title: 'Braon Cipele',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 35,
+        price: 80,
         image: require('~/assets/braon-cipele.jpg'),
         ratings: 5,
         reviews: 10,
@@ -30,7 +30,7 @@ export const state = () => ({
         id: 3,
         title: 'Crne Patike',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 110,
+        price: 100,
         image: require('~/assets/converse-patike.jpg'),
         ratings: 2,
         reviews: 3,
@@ -43,7 +43,7 @@ export const state = () => ({
         id: 4,
         title: 'Crne Cipele',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 50,
+        price: 150,
         image: require('~/assets/crne-cipele.jpg'),
         ratings: 1,
         reviews: 0,
@@ -56,7 +56,7 @@ export const state = () => ({
         id: 5,
         title: 'Sivi Duks',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 35,
+        price: 70,
         image: require('~/assets/plavi-duks.jpg'),
         ratings: 4,
         reviews: 2,
@@ -69,7 +69,7 @@ export const state = () => ({
         id: 6,
         title: 'Plavi Duks',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 110,
+        price: 40,
         image: require('~/assets/plavi-dzemper.jpg'),
         ratings: 5,
         reviews: 1,
@@ -82,7 +82,7 @@ export const state = () => ({
         id: 7,
         title: 'Sivi Dzemper',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 50,
+        price: 90,
         image: require('~/assets/sivi-duks.jpg'),
         ratings: 5,
         reviews: 7,
@@ -95,7 +95,7 @@ export const state = () => ({
         id: 8,
         title: 'Plavi Dzemper',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        price: 35,
+        price: 200,
         image: require('~/assets/teget-duks.jpg'),
         ratings: 3,
         reviews: 0,
@@ -123,7 +123,8 @@ export const state = () => ({
       isSignedUp: false,
       hasSearched: false,
       name: '',
-      productTitleSearched: ''
+      productTitleSearched: '',
+      isBought: false
     },
     systemInfo: {
       openLoginModal: false,
@@ -155,6 +156,14 @@ export const state = () => ({
          if(data.id === el.id)
            el.quantity = data.quantity
        })
+     },
+     isBought(state, isBought){
+      state.userInfo.isBought = isBought;
+     },
+     ifProductsWereBought(state){
+      state.products.forEach(el => {
+        el.isAddedToCart = false
+      })
      }
   };
   export const getters = {

@@ -6,15 +6,24 @@
             <i class="fa-solid fa-circle-xmark cursor-pointer" @click="closeCartModal()"></i>
         </div>
         <section id="modal-products" class="p-3"> 
-          <div v-if="products.length === 0"> 
+          <div v-if="products.length === 0 && !$store.state.userInfo.isBought"> 
             <p>Your checkout is empty</p>
           </div>
-          <div v-for="product in products" v-else :key="product.id">
+          <div v-for="product in products" v-else-if="products.length > 0 && !$store.state.userInfo.isBought" :key="product.id">
             <ShoppingCartProducts :product="product"></ShoppingCartProducts> 
+          </div>
+          <div v-else>
+            <p>You successfully bought products :)</p>
           </div>
         </section>
         <div class="modal-button p-3">
-            <button type="button" class="bg-green-400 text-white font-bold p-2 rounded">Buy {{ label }} for {{ sumAllPrices() }} &euro;</button>
+            <button 
+            v-if="!$store.state.userInfo.isBought"  
+            :class="[products.length === 0 ? 'hidden':'bg-green-400 text-white font-bold p-2 rounded']" 
+            @click="buyProducts()">
+            Buy {{label}} for {{sumAllPrices()}} &euro;
+            </button>
+            <button v-else type="button" class="bg-red-400 text-white font-bold p-2 rounded" @click="closeCartModal()" >Close</button>
         </div>
     </div>
   </div>
@@ -26,7 +35,8 @@ export default {
   layout: 'ShoppingCartModal',
   data() {
       return {
-        label: ''
+        label: '',
+        isBought: this.$store.state.userInfo.isBought
       }
   },
   computed: {
@@ -42,6 +52,7 @@ export default {
        return false;
     },
     closeCartModal(){
+       this.$store.commit('isBought', false);
        this.$store.commit('closeCartModal')
     },
     sumAllPrices(){
@@ -54,6 +65,11 @@ export default {
         this.label = 'product'
       })
       return sum
+    },
+    buyProducts(){
+      this.$store.commit('isBought', true);
+      this.$store.commit('ifProductsWereBought');
+      this.products.splice(0)
     }
   },
 }

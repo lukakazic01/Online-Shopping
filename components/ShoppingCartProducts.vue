@@ -13,7 +13,7 @@
      <p class="text-xs sm:text-base">{{product.title}}</p>
   </div> 
   <div class="basis text-right">
-     <button class="bg-transparent hover:bg-red-500 text-red-500 font-normal text-xs sm:text-base sm:font-semibold hover:text-white sm:py-2 sm:px-4 py-1 px-3 border border-red-500 hover:border-transparent rounded" @click="removeItem(product)">Izbrisi</button>
+     <button class="bg-transparent hover:bg-red-500 text-red-500 font-normal text-xs sm:text-base sm:font-semibold hover:text-white sm:py-2 sm:px-4 py-1 px-3 border border-red-500 hover:border-transparent rounded" @click="removeItem(product)">Delete</button>
   </div>  
 
 </div>
