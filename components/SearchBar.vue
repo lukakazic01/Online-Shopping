@@ -1,13 +1,13 @@
 <template>
-  <div class="hidden sm:block">
+  <div class="hidden sm:flex justify-end items-center relative">
       <input 
        v-model="search"
        type="text"
        placeholder="Search..." 
-       class="border-2 border-gray-200 border rounded focus:shadow-outline"
+       class="py-2 px-4 text-gray-700 leading-tight border-2 border-gray-200 border rounded focus:outline-none bg-white focus:border-blue-500"
        @keyup="searched()"
        >
-      <span class="icon is-small is-left">
+      <span class="lupa bg-blue-500 flex items-center justify-center">
 			<i class="fa fa-search"></i>
 		</span>
     </div>
@@ -37,5 +37,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.lupa{
+  position: absolute;
+  
+  color: white;
+  height: 2.35rem;
+  width: 1.8rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 </style>

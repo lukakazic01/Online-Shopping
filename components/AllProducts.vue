@@ -1,5 +1,5 @@
 <template>
-  <div class="products-wrapper container mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 my-2">
+  <div class="products-wrapper mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 my-2 container">
       <div v-for="product in products" :key="product.id">
       <SingleProduct :product="product"></SingleProduct>
       </div>
