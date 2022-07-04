@@ -5,7 +5,7 @@
             <p class="modal-p">Checkout</p>
             <i class="fa-solid fa-circle-xmark cursor-pointer" @click="closeCartModal()"></i>
         </div>
-        <section id="modal-products" class="p-3"> 
+        <section id="modal-section" class="p-3"> 
           <div v-if="products.length === 0 && !$store.state.userInfo.isBought"> 
             <p>Your checkout is empty</p>
           </div>

@@ -3,6 +3,7 @@
 <NavBar></NavBar>
 <AllProducts></AllProducts>
 <ShoppingCartModal></ShoppingCartModal>
+<SignUp></SignUp>
 </div>
 </template>
 

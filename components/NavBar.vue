@@ -17,7 +17,7 @@
       <i class="fa-solid fa-cart-shopping px-2 cursor-pointer">{{ productsLength  }}</i>
     </div>
     <div class="mr-2 ml-2">
-      <button class="modal-button hover:bg-blue-500 hover:text-white py-1 px-4 border rounded">Sign Up</button>
+      <button class="modal-button hover:bg-blue-500 hover:text-white py-1 px-4 border rounded" @click="showSignUpModal()">Sign Up</button>
       <button class="modal-button hover:bg-blue-500 hover:text-white py-1 px-4 border rounded">Log in</button>
     </div>
   </div>
@@ -42,6 +42,9 @@ export default {
    methods: {
      showCartModal(){
        this.$store.commit('showCartModal', true);
+     },
+     showSignUpModal(){
+      this.$store.commit('showSignUpModal', true);
      }
    },
 }

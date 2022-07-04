@@ -127,8 +127,8 @@ export const state = () => ({
       isBought: false
     },
     systemInfo: {
-      openLoginModal: false,
-      openSignupModal: false,
+      openLogInModal: false,
+      openSignUpModal: false,
       openCartModal: false
     }
   })
@@ -136,6 +136,9 @@ export const state = () => ({
      showCartModal(state, show){
        state.systemInfo.openCartModal = show;
      },
+     showSignUpModal(state, show){
+      state.systemInfo.openSignUpModal = show;
+    },
      closeCartModal(state){
        state.systemInfo.openCartModal = false;
      },
@@ -170,7 +173,7 @@ export const state = () => ({
      },
      searchedValue(state, title){
       state.userInfo.productTitleSearched = title;
-     }
+     },
   };
   export const getters = {
     addedToCartProducts(state){
