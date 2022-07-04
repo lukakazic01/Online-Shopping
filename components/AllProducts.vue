@@ -30,14 +30,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-  @media(max-width: 480px){
-      .products-wrapper{
-          grid-template-columns: repeat(1, minmax(0, 1fr));
-      }
-      .card-button{
-          font-size: 0.8rem;
-      }
-  }
-</style>

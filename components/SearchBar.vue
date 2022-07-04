@@ -36,15 +36,3 @@ export default {
   
 }
 </script>
-
-<style lang="scss" scoped>
-.lupa{
-  position: absolute;
-  
-  color: white;
-  height: 2.35rem;
-  width: 1.8rem;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-</style>

@@ -74,38 +74,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.modal-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-.modal{
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-    width: 60vw
-}
-.modal-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-.modal-p{
-    flex-grow: 1;
-}
-#modal-products{
-  background-color: white;
-  border-top: 1px solid #dbdbdb;
-  border-bottom: 1px solid #dbdbdb;
-}
-</style>

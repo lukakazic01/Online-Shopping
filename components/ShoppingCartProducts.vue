@@ -41,9 +41,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.basis{
-  flex-basis: 20%;
-}
-</style>

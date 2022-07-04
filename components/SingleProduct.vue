@@ -76,28 +76,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.card{
-    display:flex;
-}
-.kartica:hover{
-    box-shadow: 0px 0px 7px 3px rgba(230,230,230);
-}
-.kartica-slika{
-  height: 13em;
-  width: 100%;
-}
-.dummy-text{
-  flex-basis: 50%;
-}
-.button-heart{
-  flex-basis: 50%;
-}
-.kolicina{
-  flex-basis: 50%;
-}
-.button-wrapper{
-  flex-basis: 50%;
-}
-</style>
