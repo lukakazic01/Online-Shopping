@@ -34,7 +34,7 @@ export default {
     return {
       email: '',
       password: '',
-      username: ''
+      username: '',
     }
  },
  methods: {
@@ -48,12 +48,11 @@ export default {
       this.$store.commit('showSignUpModal', false);
     },
     async sendData(){
-      await this.$axios.$get('/serverMiddleware/signup', { params: {
+      await this.$axios.$post('/serverMiddleware/signup',{
         username: this.username,
         password: this.password,
         email: this.email
-      }})
-
+      }).then((response) => console.log(response))
     }
  },
 }

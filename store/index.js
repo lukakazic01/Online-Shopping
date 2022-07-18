@@ -124,7 +124,7 @@ export const state = () => ({
       hasSearched: false,
       name: '',
       productTitleSearched: '',
-      isBought: false
+      isBought: false,
     },
     systemInfo: {
       openLogInModal: false,

@@ -12,14 +12,15 @@ const pool = createPool({
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
-app.get("/signup",(req, res) => {
-  const {username, password, email} = req.query;
+app.post("/signup",(req, res) => {
+  const error = true;
+  const {username, password, email} = req.body;
   pool.query('INSERT INTO korisnici VALUES(default, ?, ?, ?)',[email,username,password], 
   (err,result) => {
     if(err)
     console.log(err)
 
-    res.send(result);
+    res.send({result, error});
   })
 
 });
